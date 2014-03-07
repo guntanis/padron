@@ -32,6 +32,10 @@ Crear el índice usando el Mongo CLI
 ## Software
   Poner el index.php y el .htacces en un directorio accesible por HTTP.
 
-
-
-  
+## Actualizar el Padrón
+ - Bajar el archivo PADRON_COMPLETO.txt de: http://www.tse.go.cr/zip/padron/padron_completo.zip
+ - Descomprimir: unzip padron_completo.zip
+ - Cargar los datos a la base de datos (asegurese de remover la tabla vieja [db.padron.drop()]
+``
+mongoimport --db padron --collection padron --type csv -f CEDULA,CODELEC,SEXO,FECHACADUC,JUNTA,NOMBRE,PAPELLIDO,SAPELLIDO --file PADRON_COMPLETO.txt
+``
